@@ -1,0 +1,19 @@
+{
+  "manifest_version": 3,
+  "name": "NeuCap",
+  "description": "Answers the captchas a page puts in front of you with solvers that run in this browser.",
+  "version": "0.4.0",
+  "minimum_chrome_version": "125",
+  "permissions": ["debugger", "scripting", "tabs", "storage", "unlimitedStorage", "alarms", "notifications"],
+  "host_permissions": ["<all_urls>"],
+  "background": { "service_worker": "sw.js", "type": "module" },
+  "content_scripts": [{ "matches": ["<all_urls>"], "js": ["patterns.js", "detect.js"], "run_at": "document_idle" }],
+  "action": { "default_title": "Opens NeuCap", "default_popup": "ui/popup.html", "default_icon": { "16": "icons/neucap-16.png", "32": "icons/neucap-32.png", "48": "icons/neucap-48.png" } },
+  "icons": { "16": "icons/neucap-16.png", "32": "icons/neucap-32.png", "48": "icons/neucap-48.png", "128": "icons/neucap-128.png" },
+  "options_ui": { "page": "ui/options.html", "open_in_tab": true },
+  "commands": {
+    "solve-tab": { "suggested_key": { "default": "Alt+Shift+S" }, "description": "Solve the captcha on this tab" },
+    "cycle-mode": { "suggested_key": { "default": "Alt+Shift+D" }, "description": "Switch this site between Auto, Ask and Off" }
+  },
+  "content_security_policy": { "extension_pages": "script-src 'self' 'wasm-unsafe-eval'; object-src 'self'" }
+}

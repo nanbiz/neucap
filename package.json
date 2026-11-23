@@ -1,0 +1,14 @@
+{
+  "name": "neucap",
+  "version": "0.4.0",
+  "private": true,
+  "type": "module",
+  "description": "Build and test tooling for the NeuCap extension: the runtime onnxruntime-web brings, copied into the built extension, and the end-to-end tests' driver.",
+  "scripts": {
+    "assemble": "sh scripts/assemble.sh dist/neucap",
+    "test": "sh scripts/test-e2e.sh",
+    "package": "node scripts/package.js"
+  },
+  "dependencies": { "onnxruntime-web": "1.31.1" },
+  "devDependencies": { "puppeteer-core": "25.18.1" }
+}

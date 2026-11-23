@@ -1,0 +1,6 @@
+Compiled from crates/challenge through crates/challenge-wasm of the private Neuland repository
+(wasm32-unknown-unknown, wasm-bindgen --target web), by `nix build .#captcha-extension`.
+These files are the build installed at /var/cache/neucap/wasm on 2026-11-23, the build of
+Neuland's main at that time (HEAD 4d2a4538cf21573dff6ded86c225a4573c18f7cf on 2026-11-23);
+later updates are written by apps/captcha-extension/publish-wasm.sh, which rewrites this file with
+the exact commit.

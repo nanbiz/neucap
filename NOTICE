@@ -1,0 +1,28 @@
+NeuCap
+
+Open source (MIT, see LICENSE): every file in this repository except the folder wasm/.
+
+All rights reserved: wasm/. The puzzle solvers ship only as the compiled WebAssembly in that
+folder (neuland_challenge_wasm_bg.wasm and its loader neuland_challenge_wasm.js); their source is
+not published, and the compiled files may be used unmodified as part of NeuCap but not otherwise
+copied, modified or redistributed. wasm/BUILT_FROM names the build they come from and
+wasm/SHA256SUMS their hashes.
+
+The neural network files (models), published as assets of the release named in models.release and
+listed with their hashes in models.SHA256SUMS, are not part of this repository. Each keeps its own
+license:
+
+  clip-vit-b32-vision.onnx          OpenAI CLIP ViT-B/32 image encoder, MIT (github.com/openai/CLIP)
+  yolox_s.onnx                      Megvii YOLOX-s, Apache 2.0 (github.com/Megvii-BaseDetection/YOLOX)
+  hcaptcha_semantic_encoder.onnx    Google SigLIP 2 ViT-B/32 image encoder, Apache 2.0
+                                    (huggingface.co/timm/ViT-B-32-SigLIP2-256, google-research/big_vision)
+  hcaptcha_identical.onnx, yandex_match_icon.onnx, yandex_match_crop.onnx, arkose_yaw.onnx
+                                    ResNet-18 started from torchvision's ImageNet weights (BSD 3-Clause,
+                                    github.com/pytorch/vision), trained further by the NeuCap authors:
+                                    all rights reserved for the trained weights
+  yandex_centres.onnx, yandex_symbols.onnx, yandex_text_enc.onnx, yandex_text_step.onnx,
+  hcaptcha_objects.onnx             trained by the NeuCap authors: all rights reserved
+
+The runtime, onnxruntime-web 1.31.1, is MIT (github.com/microsoft/onnxruntime) and comes from npm
+at build time. The WordNet nouns and the embedding tables compiled into the wasm are covered by
+the same notice as the wasm; WordNet's license is at wordnet.princeton.edu/license-and-commercial-use.
